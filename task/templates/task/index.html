@@ -11,7 +11,10 @@
         }
         async function download() {
             const a = document.createElement("a");
-            a.href = await toDataURL("https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png");
+            const imageUrl = "https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
+            const img = document.getElementsByClassName("image")
+            img.src = imageUrl;
+            a.href = await toDataURL(imageUrl);
             a.download = "myImage.png";
             document.body.appendChild(a);
             a.click();
@@ -21,5 +24,6 @@
 </head>
 <body>
     <button onclick="download()">DOWNLOAD</button>
+    <img class="image">
 </body>
 </html>
